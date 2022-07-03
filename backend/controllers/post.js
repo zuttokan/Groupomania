@@ -35,7 +35,7 @@ exports.getOnePost = (req, res, next) => {
 };
 
 // Modify a post
-exports.modifyPost = (req, res, next) => {
+exports.updatePost = (req, res, next) => {
   const token = req.headers.authorization.split(' ')[1];
   const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
   const userId = decodedToken.userId;
@@ -92,7 +92,7 @@ exports.deletePost = (req, res, next) => {
 };
 
 // accesses all post
-exports.allPost = (req, res, next) => {
+exports.getAllPost = (req, res, next) => {
   post
     .find()
     .then((post) => {

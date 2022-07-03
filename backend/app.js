@@ -9,7 +9,7 @@ const app = express();
 // connexion to mongoDB
 mongoose
   .connect(
-    'mongodb+srv://FormationOP:Project7@cluster0.ohdod8x.mongodb.net/?retryWrites=true&w=majority',
+    'mongodb+srv://Project7:FormationOP@cluster0.i9e9ubg.mongodb.net/?retryWrites=true&w=majority',
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => console.log('Connected to MongoDB !'))
@@ -35,6 +35,6 @@ app.use(cors());
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/api/post', postRoutes);
-app.use('/api/auth', userRoutes);
+app.use('/api/user', userRoutes);
 
 module.exports = app;

@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const mongooseErrors = require('mongoose-errors');
 // post schema
 const postSchema = mongoose.Schema({
-  //pseudo: { type: String, required: true },
+  username: { type: String, required: true },
+  text: { type: String, required: true },
   photo: { type: String, required: true },
   likes: { type: Number, default: 0 },
   dislikes: { type: Number, default: 0 },
