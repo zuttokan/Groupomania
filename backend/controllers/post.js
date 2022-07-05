@@ -4,13 +4,17 @@ const jwt = require('jsonwebtoken');
 
 // Add a post
 exports.createPost = (req, res, next) => {
-  const postObject = JSON.parse(req.body.post);
-  delete postObject._id;
+  console.log('toto');
+  const postArticle = JSON.parse(req.body);
+  delete postArticle._id;
   const post = new post({
-    ...postObject,
-    imageUrl: `${req.protocol}://${req.get('host')}/images/${
-      req.file.filename
-    }`,
+    ...postArticle,
+    username: req.body.username,
+    text: req.body.text,
+    picture: req.body.picture,
+    // imageUrl: `${req.protocol}://${req.get('host')}/images/${
+    //   req.file.filename
+    // }`,
   });
   post
     .save()
@@ -40,12 +44,15 @@ exports.updatePost = (req, res, next) => {
   const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
   const userId = decodedToken.userId;
 
-  const postObject = req.file
+  const postArticle = req.file
     ? {
         ...JSON.parse(req.body.post),
-        imageUrl: `${req.protocol}://${req.get('host')}/images/${
-          req.file.filename
-        }`,
+        username: req.body.username,
+        texte: req.body.texte,
+        picture: req.body.picture,
+        // imageUrl: `${req.protocol}://${req.get('host')}/images/${
+        //   req.file.filename
+        // }`,
       }
     : { ...req.body };
 
@@ -56,7 +63,7 @@ exports.updatePost = (req, res, next) => {
         post
           .updateOne(
             { _id: req.params.id },
-            { ...postObject, _id: req.params.id }
+            { ...postArticle, _id: req.params.id }
           )
           .then(() => res.status(200).json({ message: 'Modify post !' }))
           .catch((error) => res.status(400).json({ error }));
@@ -81,7 +88,7 @@ exports.deletePost = (req, res, next) => {
         fs.unlink(`images/${filename}`, () => {
           post
             .deleteOne({ _id: req.params.id })
-            .then(() => res.status(200).json({ message: 'deleted object !' }))
+            .then(() => res.status(200).json({ message: 'deleted Post !' }))
             .catch((error) => res.status(400).json({ error }));
         });
       } else {

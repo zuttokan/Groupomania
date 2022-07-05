@@ -1,6 +1,9 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+const dotenv = require('dotenv');
+dotenv.config();
+console.log(process.env.admin);
 
 // registration of new users
 exports.signup = (req, res, next) => {
@@ -11,10 +14,11 @@ exports.signup = (req, res, next) => {
       const user = new User({
         email: req.body.email,
         password: hash,
+        admin: req.body.email === process.env.admin ? true : false,
       });
       user
         .save()
-        .then(() => res.status(201).json({ message: 'User created!' }))
+        .then(() => res.status(201).json({ message: 'Utilisateur créé !' }))
         .catch((error) => res.status(400).json({ error }));
     })
     .catch((error) => res.status(500).json({ error }));
@@ -28,7 +32,6 @@ exports.login = (req, res, next) => {
         return res.status(401).json({ error: 'User not found !' });
       }
       bcrypt
-        //check if a password entered by the user corresponds to a secure hash recorded in the database
         .compare(req.body.password, user.password)
         .then((valid) => {
           if (!valid) {
@@ -46,10 +49,6 @@ exports.login = (req, res, next) => {
     .catch((error) => res.status(500).json({ error }));
 };
 
-exports.logout = (req, res) => {
-  res.status(200).json('OUT');
-};
-
-exports.desactivateAccount = (req, res) => {
-  const userId = req.params.id;
-};
+// exports.logout = (req, res) => {
+//   res.status(200).json('OUT');
+// };
