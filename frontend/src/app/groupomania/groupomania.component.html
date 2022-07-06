@@ -1,5 +1,9 @@
-<h2>{{ title }}</h2>
-<p>Mise en ligne le {{ createdDate }}</p>
-<img [src]="imageUrl" [alt]="title" />
-<p>{{ description }}</p>
-<p>:-) {{ snaps }}</p>
+<div class="groupo-card">
+  <h2>{{ groupomania.title }}</h2>
+  <p>Mise en ligne le {{ groupomania.createdDate }}</p>
+  <img [src]="groupomania.imageUrl" [alt]="groupomania.title" />
+  <p>{{ groupomania.description }}</p>
+  <p *ngIf="groupomania.location">Photo prise à {{ groupomania.location }}</p>
+  <button (click)="onLike()">{{ buttonText }}</button>
+  <p>:-) {{ groupomania.like }}</p>
+</div>
