@@ -24,7 +24,7 @@ const userSchema = mongoose.Schema(
       required: false,
       minLength: 3,
       maxLength: 55,
-      unique: true,
+      unique: false,
       trim: true,
     },
 
