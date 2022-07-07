@@ -1,0 +1,16 @@
+<
+<div class="groupo-card" [ngClass]="{ grouped: buttonText === 'Merci !' }">
+  <h2>{{ groupomania.title | titlecase }}</h2>
+  <p>
+    Mise en ligne à
+    {{ groupomania.createdDate | date: "HH:mm, le d MMMM yyyy" }}
+  </p>
+  <img [src]="groupomania.imageUrl" [alt]="groupomania.title" />
+  <p>{{ groupomania.description }}</p>
+  <p *ngIf="groupomania.location">Photo prise à {{ groupomania.location }}</p>
+  <button (click)="onLike()">{{ buttonText }}</button>
+
+  <span [ngStyle]="{ color: 'rgb(0, ' + groupomania.like * 90 + ', 0)' }"
+    >:-) {{ groupomania.like }}</span
+  >
+</div>

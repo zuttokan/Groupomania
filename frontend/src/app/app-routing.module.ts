@@ -4,8 +4,13 @@ import { GroupomaniaListComponent } from './groupomania-list/groupomania-list.co
 import { HomeComponent } from './home/home.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { Groupomania } from './models/groupo.models';
+import { SingleGroupomaniaPostComponent } from './single-groupomania-post/single-groupomania-post.component';
 
 const routes: Routes = [
+  {
+    path: 'groupomania/:id',
+    component: SingleGroupomaniaPostComponent,
+  },
   {
     path: 'groupomania',
     component: GroupomaniaListComponent,

@@ -10,9 +10,10 @@ import { HomeComponent } from './home/home.component';
 import { GroupomaniaListComponent } from './groupomania-list/groupomania-list.component';
 import { HeaderComponent } from './header/header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SingleGroupomaniaPostComponent } from './single-groupomania-post/single-groupomania-post.component';
 
 @NgModule({
-  declarations: [AppComponent, GroupomaniaComponent, HomeComponent, GroupomaniaListComponent, HeaderComponent, LandingPageComponent],
+  declarations: [AppComponent, GroupomaniaComponent, HomeComponent, GroupomaniaListComponent, HeaderComponent, LandingPageComponent, SingleGroupomaniaPostComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   bootstrap: [AppComponent],
