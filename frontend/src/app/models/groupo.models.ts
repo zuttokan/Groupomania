@@ -1,4 +1,5 @@
 export class Groupomania {
+  id!: number;
   title!: string;
   description!: string;
   imageUrl!: string;

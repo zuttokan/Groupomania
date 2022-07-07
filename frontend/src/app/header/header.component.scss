@@ -1,0 +1,22 @@
+header {
+  text-align: center;
+  color: #fd2d01;
+  background-color: #4e5166;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+//fd2d01 ? #ffd7d7 ? 4e5166
+
+a {
+  margin: 0 10px;
+  color: #ffd7d7;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.active {
+  color: #fd2d01;
+  text-decoration: underline;
+}
