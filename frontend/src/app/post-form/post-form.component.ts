@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Post } from '../models/post.model';
-import { PostService } from '../services/post-services';
+import { PostsServices } from '../services/posts-services';
 
 @Component({
   selector: 'app-post-form',
@@ -12,7 +12,7 @@ export class PostFormComponent implements OnInit {
 
   buttonText!: string;
 
-  constructor(private postService: PostService) {}
+  constructor(private postService: PostsServices) {}
 
   ngOnInit() {
     this.buttonText = 'Like !';

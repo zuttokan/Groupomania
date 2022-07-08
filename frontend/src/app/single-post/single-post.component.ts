@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Post } from '../models/post.model';
-import { PostService } from '../services/post-services';
+import { PostsServices } from '../services/posts-services';
 
 @Component({
   selector: 'app-single-post',
@@ -10,18 +11,18 @@ import { PostService } from '../services/post-services';
 })
 export class SinglePostComponent implements OnInit {
   post!: Post;
-
+  post$!: Observable<Post>;
   buttonText!: string;
 
   constructor(
-    private postService: PostService,
+    private postService: PostsServices,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
     this.buttonText = 'Like !';
     const postId = +this.route.snapshot.params['id'];
-    this.post = this.postService.getPostById(postId);
+    this.post$ = this.postService.getPostById(postId);
   }
 
   onLike() {

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Post } from '../models/post.model';
-import { PostService } from '../services/post-services';
+import { PostsServices } from '../services/posts-services';
 
 @Component({
   selector: 'app-new-post',
@@ -17,7 +17,7 @@ export class NewPostComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private postService: PostService,
+    private postService: PostsServices,
     private router: Router
   ) {}
 
@@ -39,6 +39,6 @@ export class NewPostComponent implements OnInit {
 
   onSubmitForm(): void {
     this.postService.addPost(this.postForm.value);
-    this.router.navigateByUrl('/post');
+    this.router.navigateByUrl('/posts');
   }
 }

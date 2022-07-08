@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-//import { Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Post } from '../models/post.model';
-import { PostService } from '../services/post-services';
+import { PostsServices } from '../services/posts-services';
 
 @Component({
   selector: 'app-post-list',
@@ -10,13 +10,13 @@ import { PostService } from '../services/post-services';
   styleUrls: ['./post-list.component.scss'],
 })
 export class PostListComponent implements OnInit {
-  post!: Post[];
-  //groupomania$!: Observable<Groupomania[]>;
+  //post!: Post[];
+  posts$!: Observable<Post[]>;
 
-  constructor(private postService: PostService, private router: Router) {}
+  constructor(private postService: PostsServices, private router: Router) {}
 
   ngOnInit(): void {
-    this.post = this.postService.getAllPost();
-    //this.groupomania$ = this.groupomaniaService.getAllGroupomania();
+    //this.post = this.postService.getAllPost();
+    this.posts$ = this.postService.getAllPost();
   }
 }
