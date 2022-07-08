@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Groupomania } from '../models/groupo.models';
+import { Groupomania } from '../models/groupomania.models';
 import { GroupomaniaService } from '../services/groupomania-services';
 
 @Component({

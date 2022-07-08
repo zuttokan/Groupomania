@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Groupomania } from '../models/groupo.models';
+import { Groupomania } from '../models/groupomania.models';
 import { GroupomaniaService } from '../services/groupomania-services';
 
 @Component({

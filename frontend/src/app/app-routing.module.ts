@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GroupomaniaListComponent } from './groupomania-list/groupomania-list.component';
-import { HomeComponent } from './home/home.component';
+
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { Groupomania } from './models/groupo.models';
+import { Groupomania } from './models/groupomania.models';
+import { NewGroupomaniaComponent } from './new-groupomania/new-groupomania.component';
+
 import { SingleGroupomaniaPostComponent } from './single-groupomania-post/single-groupomania-post.component';
 
 const routes: Routes = [
+  {
+    path: 'create',
+    component: NewGroupomaniaComponent,
+  },
   {
     path: 'groupomania/:id',
     component: SingleGroupomaniaPostComponent,
@@ -21,10 +27,6 @@ const routes: Routes = [
     component: LandingPageComponent,
   },
 
-  {
-    path: 'home',
-    component: HomeComponent,
-  },
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),

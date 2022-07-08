@@ -6,15 +6,34 @@ import * as fr from '@angular/common/locales/fr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GroupomaniaComponent } from './groupomania/groupomania.component';
-import { HomeComponent } from './home/home.component';
 import { GroupomaniaListComponent } from './groupomania-list/groupomania-list.component';
 import { HeaderComponent } from './header/header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SingleGroupomaniaPostComponent } from './single-groupomania-post/single-groupomania-post.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { AuthModule } from './auth/auth.module';
+import { HttpClientModule } from '@angular/common/http';
+import { NewGroupomaniaComponent } from './new-groupomania/new-groupomania.component';
 
 @NgModule({
-  declarations: [AppComponent, GroupomaniaComponent, HomeComponent, GroupomaniaListComponent, HeaderComponent, LandingPageComponent, SingleGroupomaniaPostComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    GroupomaniaComponent,
+    GroupomaniaListComponent,
+    HeaderComponent,
+    LandingPageComponent,
+    SingleGroupomaniaPostComponent,
+    NewGroupomaniaComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AuthModule,
+    HttpClientModule,
+  ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   bootstrap: [AppComponent],
 })

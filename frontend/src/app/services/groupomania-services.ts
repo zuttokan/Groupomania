@@ -1,10 +1,14 @@
+//import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Groupomania } from '../models/groupo.models';
+import { Observable } from 'rxjs';
+import { Groupomania } from '../models/groupomania.models';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GroupomaniaService {
+  //constructor(private http: HttpClient) {}
+
   groupomania: Groupomania[] = [
     {
       id: 1,
@@ -40,6 +44,8 @@ export class GroupomaniaService {
 
   getAllGroupomania(): Groupomania[] {
     return this.groupomania;
+    //Observable<Groupomania[]>
+    //return this.http.get<Groupomania[]>('http://localhost:3000/groupomania');
   }
 
   getGroupomaniaById(groupomaniaId: number): Groupomania {
@@ -59,5 +65,20 @@ export class GroupomaniaService {
   ): void {
     const groupomania = this.getGroupomaniaById(groupomaniaId);
     groupomaniaType === 'Like' ? groupomania.like++ : groupomania.like--;
+  }
+
+  addGroupoPost(formValue: {
+    title: string;
+    description: string;
+    imageUrl: string;
+    location?: string;
+  }): void {
+    const groupomania: Groupomania = {
+      ...formValue,
+      createdDate: new Date(),
+      like: 0,
+      id: this.groupomania[this.groupomania.length - 1].id + 1,
+    };
+    this.groupomania.push(groupomania);
   }
 }
