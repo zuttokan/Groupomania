@@ -1,6 +1,6 @@
 <div class="form-card">
   <h2>NOUVEAU POST</h2>
-  <form [formGroup]="groupoForm">
+  <form [formGroup]="postForm">
     <div class="form-group">
       <label for="title">Titre</label>
       <input id="title" type="text" formControlName="title" />
@@ -27,7 +27,7 @@
       <button
         type="submit"
         (click)="onSubmitForm()"
-        [disabled]="groupoForm.invalid"
+        [disabled]="postForm.invalid"
       >
         Enregistrer
       </button>

@@ -1,0 +1,15 @@
+<div class="post-card" [ngClass]="{ grouped: buttonText === 'Merci !' }">
+  <h2>{{ post.title | titlecase }}</h2>
+  <p>
+    Mise en ligne à
+    {{ post.createdDate | date: "HH:mm, le d MMMM yyyy" }}
+  </p>
+  <img [src]="post.imageUrl" [alt]="post.title" />
+  <p>{{ post.description }}</p>
+  <p *ngIf="post.location">Photo prise à {{ post.location }}</p>
+  <button (click)="onLike()">{{ buttonText }}</button>
+
+  <span [ngStyle]="{ color: 'rgb(0, ' + post.like * 90 + ', 0)' }"
+    >:-) {{ post.like }}</span
+  >
+</div>

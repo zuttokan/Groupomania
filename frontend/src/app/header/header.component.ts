@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onAddNewGroupomania(): void {
+  onAddNewPost(): void {
     this.router.navigateByUrl('/create');
   }
 }

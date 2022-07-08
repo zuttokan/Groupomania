@@ -1,15 +1,15 @@
 //import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Groupomania } from '../models/groupomania.models';
+import { Post } from '../models/post.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class GroupomaniaService {
+export class PostService {
   //constructor(private http: HttpClient) {}
 
-  groupomania: Groupomania[] = [
+  post: Post[] = [
     {
       id: 1,
       title: 'Archibald',
@@ -42,43 +42,40 @@ export class GroupomaniaService {
     },
   ];
 
-  getAllGroupomania(): Groupomania[] {
-    return this.groupomania;
-    //Observable<Groupomania[]>
-    //return this.http.get<Groupomania[]>('http://localhost:3000/groupomania');
+  getAllPost(): Post[] {
+    return this.post;
   }
 
-  getGroupomaniaById(groupomaniaId: number): Groupomania {
-    const groupomania = this.groupomania.find(
-      (groupomania) => groupomania.id === groupomaniaId
-    );
-    if (!groupomania) {
+  // getAllGroupomania(): Observable<Groupomania[]> {
+  //   return this.http.get<Groupomania[]>('http://localhost:3000/groupomania');
+  // }
+
+  getPostById(postId: number): Post {
+    const post = this.post.find((post) => post.id === postId);
+    if (!post) {
       throw new Error('Post not found !');
     } else {
-      return groupomania;
+      return post;
     }
   }
 
-  groupomaniaById(
-    groupomaniaId: number,
-    groupomaniaType: 'Like' | 'Dislike'
-  ): void {
-    const groupomania = this.getGroupomaniaById(groupomaniaId);
-    groupomaniaType === 'Like' ? groupomania.like++ : groupomania.like--;
+  postById(postId: number, postType: 'Like' | 'Dislike'): void {
+    const post = this.getPostById(postId);
+    postType === 'Like' ? post.like++ : post.like--;
   }
 
-  addGroupoPost(formValue: {
+  addPost(formValue: {
     title: string;
     description: string;
     imageUrl: string;
     location?: string;
   }): void {
-    const groupomania: Groupomania = {
+    const post: Post = {
       ...formValue,
       createdDate: new Date(),
       like: 0,
-      id: this.groupomania[this.groupomania.length - 1].id + 1,
+      id: this.post[this.post.length - 1].id + 1,
     };
-    this.groupomania.push(groupomania);
+    this.post.push(post);
   }
 }

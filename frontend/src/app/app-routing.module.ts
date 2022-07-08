@@ -1,25 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GroupomaniaListComponent } from './groupomania-list/groupomania-list.component';
-
+import { PostListComponent } from './post-list/post-list.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { Groupomania } from './models/groupomania.models';
-import { NewGroupomaniaComponent } from './new-groupomania/new-groupomania.component';
+import { Post } from './models/post.model';
+import { NewPostComponent } from './new-post/new-post.component';
 
-import { SingleGroupomaniaPostComponent } from './single-groupomania-post/single-groupomania-post.component';
+import { SinglePostComponent } from './single-post/single-post.component';
 
 const routes: Routes = [
   {
     path: 'create',
-    component: NewGroupomaniaComponent,
+    component: NewPostComponent,
   },
   {
-    path: 'groupomania/:id',
-    component: SingleGroupomaniaPostComponent,
+    path: 'post/:id',
+    component: SinglePostComponent,
   },
   {
-    path: 'groupomania',
-    component: GroupomaniaListComponent,
+    path: 'post',
+    component: PostListComponent,
   },
 
   {
