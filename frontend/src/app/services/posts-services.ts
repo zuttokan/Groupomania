@@ -12,11 +12,11 @@ export class PostsServices {
   posts: Post[] = [];
 
   getAllPost(): Observable<Post[]> {
-    return this.http.get<Post[]>('http://localhost:3000/posts');
+    return this.http.get<Post[]>('http://localhost:3000/post');
   }
 
   getPostById(postId: number): Observable<Post> {
-    return this.http.get<Post>(`http://localhost:3000/posts/${postId}`);
+    return this.http.get<Post>(`http://localhost:3000/post/${postId}`);
   }
 
   postById(postId: number, postType: 'Like' | 'Dislike'): void {
