@@ -12,11 +12,11 @@ export class PostsServices {
   posts: Post[] = [];
 
   getAllPost(): Observable<Post[]> {
-    return this.http.get<Post[]>('http://localhost:3000/post');
+    return this.http.get<Post[]>('http://localhost:3000/api/post');
   }
 
   getPostById(postId: number): Observable<Post> {
-    return this.http.get<Post>(`http://localhost:3000/post/${postId}`);
+    return this.http.get<Post>(`http://localhost:3000/api/post/${postId}`);
   }
 
   postById(postId: number, postType: 'Like' | 'Dislike'): void {
@@ -34,7 +34,8 @@ export class PostsServices {
       ...formValue,
       createdDate: new Date(),
       like: 0,
-      id: this.posts[this.posts.length - 1].id + 1,
+      //id: this.posts[this.posts.length - 1].id + 1,
+      id: this.posts.length + 1,
     };
     this.posts.push(post);
   }
