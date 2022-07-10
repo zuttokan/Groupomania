@@ -14,7 +14,7 @@ const createToken = (id) => {
 //inscription
 module.exports.signUp = async (req, res) => {
   console.log('req.body', req.body);
-  const { pseudo, username, email, password } = req.body;
+  const { pseudo, username, email, password, admin } = req.body;
 
   console.log({ email });
   console.log({ password });
@@ -24,7 +24,7 @@ module.exports.signUp = async (req, res) => {
       password: password,
       username: username,
       pseudo: pseudo,
-      //admin: req.body.email === process.env.admin ? true : false,
+      admin: admin === process.env.admin ? true : false,
     });
     console.log('user', user);
 
