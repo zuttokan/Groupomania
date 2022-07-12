@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
-import { NewPostComponent } from '../new-post/new-post.component';
-import { SinglePostComponent } from '../single-post/single-post.component';
-import { PostListComponent } from '../post-list/post-list.component';
+import { NewPostComponent } from '../forum/components/new-post/new-post.component';
+import { SinglePostComponent } from '../forum/components/single-post/single-post.component';
+import { PostListComponent } from '../forum/components/post-list/post-list.component';
 
 const routes: Routes = [
   {

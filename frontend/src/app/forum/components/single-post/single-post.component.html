@@ -8,6 +8,7 @@
   [ngClass]="{ posted: buttonText === 'Merci !' }"
 >
   <h2>{{ post.title | titlecase }}</h2>
+  <a routerlink="/post">Back</a>
   <p>
     Mise en ligne à
     {{ post.createdDate | date: "HH:mm, le d MMMM yyyy" }}

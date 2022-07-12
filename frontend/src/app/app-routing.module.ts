@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-//import { PostListComponent } from './post-list/post-list.component';
-//import { Post } from './models/post.model';
-//import { NewPostComponent } from './new-post/new-post.component';
-//import { SinglePostComponent } from './single-post/single-post.component';
+import { LandingPageComponent } from './landing-page/components/landing-page/landing-page.component';
 
 const routes: Routes = [
   {
@@ -15,19 +11,6 @@ const routes: Routes = [
     path: '',
     component: LandingPageComponent,
   },
-
-  // {
-  //   path: 'create',
-  //   component: NewPostComponent,
-  // },
-  // {
-  //   path: 'post/:id',
-  //   component: SinglePostComponent,
-  // },
-  // {
-  //   path: 'post',
-  //   component: PostListComponent,
-  // },
 ];
 
 @NgModule({
