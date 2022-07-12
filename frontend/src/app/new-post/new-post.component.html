@@ -34,3 +34,10 @@
     </div>
   </form>
 </div>
+<!-- <div class="post-card" *ngIf="postPreview$ | async as post">
+  <h2>{{ post.title | uppercase }}</h2>
+  <p>Mis en ligne {{ post.createdDate | date: "à HH:mm, le d MMMM yyyy" }}</p>
+  <img [src]="post.imageUrl" [alt]="post.title" />
+  <p>{{ post.description }}</p>
+  <p *ngIf="post.location">Photo prise à {{ post.location }}</p>
+</div> -->

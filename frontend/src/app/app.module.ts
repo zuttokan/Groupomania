@@ -1,22 +1,21 @@
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
-import { AuthModule } from './auth/auth.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
-import { registerLocaleData } from '@angular/common';
-import * as fr from '@angular/common/locales/fr';
-
+//import { AuthModule } from './auth/auth.module';
+//import { registerLocaleData } from '@angular/common';
+//import * as fr from '@angular/common/locales/fr';
 //import { PostFormComponent } from './post-form/post-form.component';
 //import { PostListComponent } from './post-list/post-list.component';
-import { HeaderComponent } from './header/header.component';
 //import { SinglePostComponent } from './single-post/single-post.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //import { AuthModule } from './auth/auth.module';
-import { HttpClientModule } from '@angular/common/http';
+//import { HeaderComponent } from './core/components/header/header.component';
+//import { HttpInterceptorProviders } from './core/interceptors';
 //import { NewPostComponent } from './new-post/new-post.component';
 
 @NgModule({
@@ -24,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     // PostFormComponent,
     // PostListComponent,
-    HeaderComponent,
+    //HeaderComponent,
     LandingPageComponent,
     // SinglePostComponent,
     // NewPostComponent,
@@ -34,16 +33,13 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     CoreModule,
     //LadingPageModule not created !!!
-    //FormsModule,
-    //ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     // AuthModule,
+    //HeaderComponent,
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
+  //providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {
-  constructor() {
-    registerLocaleData(fr.default);
-  }
-}
+export class AppModule {}
