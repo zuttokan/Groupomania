@@ -5,7 +5,8 @@ import { LandingPageComponent } from './landing-page/components/landing-page/lan
 const routes: Routes = [
   {
     path: 'post',
-    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+    loadChildren: () =>
+      import('./forum/forum.module').then((m) => m.ForumModule),
   },
   {
     path: '',

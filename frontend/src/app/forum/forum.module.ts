@@ -4,8 +4,8 @@ import { NewPostComponent } from './components/new-post/new-post.component';
 import { SinglePostComponent } from './components/single-post/single-post.component';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { PostFormComponent } from './components/post-form/post-form.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ForumRoutingModule } from './forum.routing.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
     PostListComponent,
     PostFormComponent,
   ],
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, ForumRoutingModule],
   exports: [
     NewPostComponent,
     SinglePostComponent,
