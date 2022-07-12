@@ -35,3 +35,14 @@ export class SinglePostComponent implements OnInit {
     }
   }
 }
+
+// onLike() {
+//   if (this.buttonText === 'Like !') {
+//     this.post$ = this.postService.postById(postId, 'Like').pipe(
+//     tap(() => this.buttonText = 'Merci !'));
+//   } else {
+//     this.post$ = this.postService.postById(post.id, 'Dislike').pipe(
+//     tap(() => this.buttonText = 'Merci !'));
+//     this.buttonText = 'Like !';
+//   }
+// }

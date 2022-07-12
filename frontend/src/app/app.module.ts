@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { LandingPageModule } from './landing-page/landing-page.module';
 import { ForumModule } from './forum/forum.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +15,7 @@ import { ForumModule } from './forum/forum.module';
     CoreModule,
     ForumModule,
     LandingPageModule,
+    AuthModule,
   ],
 
   bootstrap: [AppComponent],
