@@ -12,6 +12,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {}
 
   onAddNewPost(): void {
-    this.router.navigateByUrl('/create');
+    this.router.navigateByUrl('/post/create');
   }
 }

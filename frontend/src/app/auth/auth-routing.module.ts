@@ -1,12 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
+import { NewPostComponent } from '../new-post/new-post.component';
+import { SinglePostComponent } from '../single-post/single-post.component';
+import { PostListComponent } from '../post-list/post-list.component';
 
 const routes: Routes = [
   {
-    path: 'auth/login',
-    component: LoginComponent,
+    path: 'create',
+    component: NewPostComponent,
   },
+  {
+    path: ':id',
+    component: SinglePostComponent,
+  },
+  {
+    path: '',
+    component: PostListComponent,
+  },
+
+  // {
+  //   path: 'auth/login',
+  //   component: LoginComponent,
+  // },
 ];
 
 @NgModule({
