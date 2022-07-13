@@ -38,9 +38,8 @@ export class NewPostComponent implements OnInit {
   }
 
   onSubmitForm(): void {
-    this.postService.addPost(this.postForm.value);
-    console.log(this.postForm.value);
-
-    this.router.navigateByUrl('/post');
+    this.postService.addPost(this.postForm.value).subscribe(() => {
+      this.router.navigateByUrl('/post');
+    });
   }
 }

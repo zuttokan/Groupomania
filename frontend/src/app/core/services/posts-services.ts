@@ -29,14 +29,12 @@ export class PostsServices {
     description: string;
     imageUrl: string;
     location?: string;
-  }): void {
-    const post: Post = {
-      ...formValue,
-      createdDate: new Date(),
-      like: 0,
-      //id: this.posts[this.posts.length - 1].id + 1,
-      id: this.posts.length + 1,
+  }): Observable<any> {
+    const post = {
+      posterId: formValue.title,
+      message: formValue.description,
+      picture: formValue.imageUrl,
     };
-    this.posts.push(post);
+    return this.http.post('http://localhost:3000/api/post', post);
   }
 }

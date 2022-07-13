@@ -10,7 +10,7 @@ import { PostsServices } from 'src/app/core/services/posts-services';
   styleUrls: ['./post-list.component.scss'],
 })
 export class PostListComponent implements OnInit {
-  //post!: Post[];
+  post!: Post[];
   posts$!: Observable<Post[]>;
 
   constructor(private postService: PostsServices, private router: Router) {}

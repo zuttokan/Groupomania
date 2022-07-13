@@ -38,6 +38,7 @@ module.exports.signUp = async (req, res) => {
 
 //connexion
 module.exports.signIn = async (req, res) => {
+  console.log('signin');
   const { email, password } = req.body;
 
   try {
@@ -47,7 +48,7 @@ module.exports.signIn = async (req, res) => {
     res.status(200).json({ user: token });
   } catch (err) {
     const errors = signInErrors(err);
-    res.status(200).json({ errors });
+    res.status(401).json({ errors });
   }
 };
 

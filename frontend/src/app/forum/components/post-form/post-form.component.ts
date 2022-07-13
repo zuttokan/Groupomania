@@ -8,7 +8,7 @@ import { PostsServices } from 'src/app/core/services/posts-services';
   styleUrls: ['./post-form.component.scss'],
 })
 export class PostFormComponent implements OnInit {
-  @Input() post!: Post;
+  @Input() post!: any;
 
   buttonText!: string;
 
