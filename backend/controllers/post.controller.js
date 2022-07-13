@@ -149,6 +149,7 @@ module.exports.commentPost = (req, res) => {
             timestamp: new Date().getTime(),
           },
         },
+        z,
       },
       { new: true },
       (err, docs) => {

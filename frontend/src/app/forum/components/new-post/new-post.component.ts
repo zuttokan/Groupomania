@@ -14,6 +14,7 @@ export class NewPostComponent implements OnInit {
   postForm!: FormGroup;
   postPreview$!: Observable<Post>;
   urlRegex!: RegExp;
+  imagePreview!: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -41,5 +42,15 @@ export class NewPostComponent implements OnInit {
     this.postService.addPost(this.postForm.value).subscribe(() => {
       this.router.navigateByUrl('/post');
     });
+  }
+  onFileAdded(event: Event) {
+    const file = (event.target as HTMLInputElement).files![0];
+    this.postForm.get('image')!.setValue(file);
+    this.postForm.updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imagePreview = reader.result as string;
+    };
+    reader.readAsDataURL(file);
   }
 }

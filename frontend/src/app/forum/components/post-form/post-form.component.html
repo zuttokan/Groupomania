@@ -6,10 +6,11 @@
   </p>
   <img [src]="post.picture" [alt]="post.posterId" />
   <p>{{ post.message }}</p>
+  <p>{{ post._id }}</p>
   <p *ngIf="post.location">Photo prise à {{ post.location }}</p>
   <button (click)="onLike()">{{ buttonText }}</button>
 
   <span [ngStyle]="{ color: 'rgb(0, ' + post.like * 90 + ', 0)' }"
     >:-) {{ post.like }}</span
-  >
+  ><button (click)="onEdit()">{{ buttonTextEdit }}</button>
 </div>

@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.signinForm = this.fb.group({
-      name: [
+      pseudo: [
         '',
         [
           Validators.required,
@@ -160,7 +160,6 @@ export class LoginComponent implements OnInit {
 
   //Ajouter un utilisateur
   addUser(user: User) {
-    user.role = 'CLIENT';
     this.userServices.addUser(user).subscribe(
       (response: User) => {
         this.loginUser(response);

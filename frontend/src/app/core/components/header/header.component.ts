@@ -14,4 +14,12 @@ export class HeaderComponent implements OnInit {
   onAddNewPost(): void {
     this.router.navigateByUrl('/post/create');
   }
+  onLogout(): void {
+    console.log('test');
+
+    if (localStorage.getItem('session')) {
+      localStorage.removeItem('session');
+      this.router.navigateByUrl('/auth/login');
+    }
+  }
 }

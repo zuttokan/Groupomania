@@ -13,7 +13,7 @@
     Mise en ligne à
     {{ post.createdDate | date: "HH:mm, le d MMMM yyyy" }}
   </p>
-  <img [src]="post.imageUrl" [alt]="post.title" />
+  <img [src]="post.picture" [alt]="post.title" />
   <p>{{ post.description }}</p>
   <p *ngIf="post.location">Photo prise à {{ post.location }}</p>
   <button (click)="onLike()">{{ buttonText }}</button>
