@@ -15,6 +15,7 @@ export class NewPostComponent implements OnInit {
   postPreview$!: Observable<Post>;
   urlRegex!: RegExp;
   imagePreview!: string;
+  user!: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,6 +24,8 @@ export class NewPostComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log(localStorage.getItem('email'));
+    this.user = localStorage.getItem('email');
     this.urlRegex =
       /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/;
     this.postForm = this.formBuilder.group(
@@ -31,6 +34,7 @@ export class NewPostComponent implements OnInit {
         description: [null, Validators.required],
         imageUrl: [null, [Validators.pattern(this.urlRegex)]],
         location: [null],
+        email: this.user,
       },
       {
         updateOn: 'blur',

@@ -12,11 +12,13 @@ export class PostFormComponent implements OnInit {
 
   buttonText!: string;
   buttonTextEdit!: string;
+  buttonDeletePost!: string;
   constructor(private postService: PostsServices) {}
 
   ngOnInit() {
     this.buttonText = 'Like !';
-    this.buttonTextEdit = 'Edit !';
+    this.buttonTextEdit = 'Editez';
+    this.buttonDeletePost = 'Supprimer ';
   }
 
   onLike() {
@@ -29,5 +31,7 @@ export class PostFormComponent implements OnInit {
     }
   }
 
-  onEdit() {}
+  onEditPost() {}
+
+  onDeletePost() {}
 }

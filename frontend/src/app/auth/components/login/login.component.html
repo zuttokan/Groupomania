@@ -9,19 +9,19 @@
       Connexion
     </h2>
     <h2
-      (click)="onRegisterPage()"
-      id="register"
+      (click)="onSigninPage()"
+      id="signin"
       class="section"
       title="Inscrivez-vous"
     >
       Incription
     </h2>
   </nav>
-  <div *ngIf="registerActive" class="inscription">
+  <div *ngIf="signinActive" class="inscription">
     <form
       class="form-group"
       [formGroup]="signinForm"
-      (ngSubmit)="register(signinForm.value)"
+      (ngSubmit)="signin(signinForm.value)"
     >
       <input placeholder="Votre pseudo" formControlName="name" />
       <span
@@ -38,18 +38,18 @@
         >Votre nom est trop court</span
       >
 
-      <input placeholder="Votre prénom" formControlName="firstname" />
+      <input placeholder="Votre prénom" formControlName="username" />
       <span
         *ngIf="
-          signinForm.get('firstname')!.hasError('required') &&
-          signinForm.get('firstname')!.touched
+          signinForm.get('username')!.hasError('required') &&
+          signinForm.get('username')!.touched
         "
         >Votre prénom est requis</span
       >
-      <span *ngIf="signinForm.get('firstname')!.hasError('maxlength')"
+      <span *ngIf="signinForm.get('username')!.hasError('maxlength')"
         >Votre prénom est trop long</span
       >
-      <span *ngIf="signinForm.get('firstname')!.hasError('minlength')"
+      <span *ngIf="signinForm.get('username')!.hasError('minlength')"
         >Votre prénom est trop court</span
       >
 

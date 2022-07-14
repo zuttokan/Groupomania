@@ -18,6 +18,12 @@
     <div class="form-group">
       <p>Ajouter votre photo</p>
       <input
+        type="hidden"
+        name="email"
+        value="{{ user }}"
+        formControlName="email"
+      />
+      <input
         type="file"
         accept="image/*"
         #imageInput

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const PostSchema = new mongoose.Schema(
   {
-    posterId: {
+    title: {
       type: String,
       required: true,
     },
@@ -14,24 +14,12 @@ const PostSchema = new mongoose.Schema(
     picture: {
       type: String,
     },
-    video: {
-      type: String,
-    },
+
     likers: {
       type: [String],
       required: true,
     },
-    comments: {
-      type: [
-        {
-          commenterId: String,
-          commenterName: String,
-          text: String,
-          timestamp: Number,
-        },
-      ],
-      required: true,
-    },
+    email: { type: String },
   },
   {
     timestamps: true,

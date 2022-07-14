@@ -20,10 +20,10 @@ module.exports.signUp = async (req, res) => {
   console.log({ password });
   try {
     const user = await UserModel.create({
+      pseudo: pseudo,
+      username: username,
       email: email,
       password: password,
-      username: username,
-      pseudo: pseudo,
       admin: admin === process.env.admin ? true : false,
     });
     console.log('user', user);

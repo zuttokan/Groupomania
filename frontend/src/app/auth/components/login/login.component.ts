@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   users: User[] = [];
   signinForm!: FormGroup;
   loginForm!: FormGroup;
-  registerActive: boolean = false;
+  signinActive: boolean = false;
   loginActive: boolean = true;
   loggedInUser!: User | null;
   loggedInUserId!: LoggedInUserId | null;
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
           Validators.minLength(2),
         ],
       ],
-      firstname: [
+      username: [
         '',
         [
           Validators.required,
@@ -100,7 +100,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  register(user: User) {}
+  signin(user: User) {}
 
   onLogin() {
     console.log('onLogin()');
@@ -110,6 +110,7 @@ export class LoginComponent implements OnInit {
       .pipe(
         tap(() => {
           console.log('Navigate to /post');
+          localStorage.setItem('email', this.loginForm.value['email']);
           this.router.navigateByUrl('/post');
         }),
         catchError((e) => {
@@ -120,10 +121,10 @@ export class LoginComponent implements OnInit {
       .subscribe();
   }
 
-  onRegisterPage() {
-    document.getElementById('register')?.classList.add('active');
+  onSigninPage() {
+    document.getElementById('signin')?.classList.add('active');
     document.getElementById('login')?.classList.remove('active');
-    this.registerActive = true;
+    this.signinActive = true;
     this.loginActive = false;
   }
 

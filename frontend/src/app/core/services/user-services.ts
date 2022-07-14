@@ -15,15 +15,7 @@ export class UserServices {
   }
 
   public addUser(user: User): Observable<User> {
-    return this.http.post<User>(`${this.apiServerUrl}/api/user/signin`, user);
-  }
-
-  public updateUser(user: User, userId: number): Observable<User> {
-    return this.http.put<User>(`${this.apiServerUrl}/api/user/${userId}`, user);
-  }
-
-  public deleteUser(userId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/api/user/${userId}`);
+    return this.http.post<User>(`${this.apiServerUrl}/api/user/signup`, user);
   }
 
   public loginUser(user: User): Observable<User> {
@@ -34,3 +26,10 @@ export class UserServices {
     return this.http.get<any>(`${this.apiServerUrl}/api/user/logout`);
   }
 }
+// public updateUser(user: User, userId: number): Observable<User> {
+//   return this.http.put<User>(`${this.apiServerUrl}/api/user/${userId}`, user);
+// }
+
+// public deleteUser(userId: number): Observable<void> {
+//   return this.http.delete<void>(`${this.apiServerUrl}/api/user/${userId}`);
+// }

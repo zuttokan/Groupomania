@@ -17,12 +17,13 @@ module.exports.readPost = (req, res) => {
 //create a Post
 module.exports.createPost = async (req, res) => {
   const newPost = new postModel({
-    posterId: req.body.posterId,
+    title: req.body.posterId,
     message: req.body.message,
-    video: req.body.video,
+    email: req.body.email,
+    //video: req.body.video,
     picture: req.body.picture,
     likers: [],
-    comments: [],
+    //comments: [],
   });
 
   try {
@@ -133,81 +134,81 @@ module.exports.unlikePost = async (req, res) => {
 };
 
 //comment a post
-module.exports.commentPost = (req, res) => {
-  if (!ObjectID.isValid(req.params.id))
-    return res.status(400).send('ID unknow : ' + req.params.id);
+// module.exports.commentPost = (req, res) => {
+//   if (!ObjectID.isValid(req.params.id))
+//     return res.status(400).send('ID unknow : ' + req.params.id);
 
-  try {
-    return PostModel.findByIdAndUpdate(
-      req.params.id,
-      {
-        $push: {
-          comments: {
-            commenterId: req.body.commenterId,
-            commenterName: req.body.commenterName,
-            text: req.body.text,
-            timestamp: new Date().getTime(),
-          },
-        },
-        z,
-      },
-      { new: true },
-      (err, docs) => {
-        if (!err) return res.send(docs);
-        else return res.status(400).send(err);
-      }
-    );
-  } catch (err) {
-    return res.status(400).send(err);
-  }
-};
+//   try {
+//     return PostModel.findByIdAndUpdate(
+//       req.params.id,
+//       {
+//         $push: {
+//           comments: {
+//             commenterId: req.body.commenterId,
+//             commenterName: req.body.commenterName,
+//             text: req.body.text,
+//             timestamp: new Date().getTime(),
+//           },
+//         },
+//         z,
+//       },
+//       { new: true },
+//       (err, docs) => {
+//         if (!err) return res.send(docs);
+//         else return res.status(400).send(err);
+//       }
+//     );
+//   } catch (err) {
+//     return res.status(400).send(err);
+//   }
+// };
 
 //edit a post
-module.exports.editCommentPost = (req, res) => {
-  if (!ObjectID.isValid(req.params.id))
-    return res.status(400).send('ID unknow : ' + req.params.id);
+// module.exports.editCommentPost = (req, res) => {
+//   if (!ObjectID.isValid(req.params.id))
+//     return res.status(400).send('ID unknow : ' + req.params.id);
 
-  try {
-    return PostModel.findById(req.params.id, (err, docs) => {
-      const theComment = docs.comments.find((comment) =>
-        comment._id.equals(req.body.commentId)
-      );
+//   try {
+//     return PostModel.findById(req.params.id, (err, docs) => {
+//       const theComment = docs.comments.find((comment) =>
+//         comment._id.equals(req.body.commentId)
+//       );
 
-      if (!theComment) return res.status(404).send('Comment not found');
-      theComment.text = req.body.text;
+//       if (!theComment) return res.status(404).send('Comment not found');
+//       theComment.text = req.body.text;
 
-      return docs.save((err) => {
-        if (!err) return res.status(200).send(docs);
-        return res.status(500).send(err);
-      });
-    });
-  } catch (err) {
-    return res.status(400).send(err);
-  }
-};
+//       return docs.save((err) => {
+//         if (!err) return res.status(200).send(docs);
+//         return res.status(500).send(err);
+//       });
+//     });
+//   } catch (err) {
+//     return res.status(400).send(err);
+//   }
+// };
 
 //delete a post
-module.exports.deleteCommentPost = (req, res) => {
-  if (!ObjectID.isValid(req.params.id))
-    return res.status(400).send('ID unknow : ' + req.params.id);
+// module.exports.deleteCommentPost = (req, res) => {
+//   if (!ObjectID.isValid(req.params.id))
+//     return res.status(400).send('ID unknow : ' + req.params.id);
 
-  try {
-    return PostModel.findByIdAndUpdate(
-      req.params.id,
-      {
-        $pull: {
-          comments: {
-            _id: req.body.commentId,
-          },
-        },
-      },
-      { new: true },
-      (err, docs) => {
-        if (!err) return res.send(docs);
-        else return res.status(400).send(err);
-      }
-    );
-  } catch (err) {
-    return res.status(400).send(err);
-  }
-};
+//   try {
+//     return PostModel.findByIdAndUpdate(
+//       req.params.id,
+//       {
+//         $pull: {
+//           comments: {
+//             _id: req.body.commentId,
+//           },
+//         },
+//       },
+//       { new: true },
+//       (err, docs) => {
+//         if (!err) return res.send(docs);
+//         else return res.status(400).send(err);
+//       }
+//     );
+//   } catch (err) {
+//     return res.status(400).send(err);
+//   }
+// };

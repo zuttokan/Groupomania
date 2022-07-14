@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
 
     if (localStorage.getItem('session')) {
       localStorage.removeItem('session');
+      localStorage.removeItem('email');
       this.router.navigateByUrl('/auth/login');
     }
   }

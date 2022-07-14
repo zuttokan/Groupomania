@@ -12,5 +12,6 @@
 
   <span [ngStyle]="{ color: 'rgb(0, ' + post.like * 90 + ', 0)' }"
     >:-) {{ post.like }}</span
-  ><button (click)="onEdit()">{{ buttonTextEdit }}</button>
+  ><button (click)="onEditPost()">{{ buttonTextEdit }}</button>
+  <button (click)="onDeletePost()">{{ buttonDeletePost }}</button>
 </div>

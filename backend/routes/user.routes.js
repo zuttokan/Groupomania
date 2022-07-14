@@ -5,7 +5,7 @@ const multer = require('multer');
 const upload = multer();
 
 //auth
-router.post('/signin', authController.signUp);
+router.post('/signup', authController.signUp);
 router.post('/login', authController.signIn);
 router.get('/logout', authController.logout);
 
